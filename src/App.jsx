@@ -1,61 +1,49 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function App() {
-  const [counter, setCounter] = useState(0);
-  const [sync, setSync] = useState(false);
-
-  useEffect(() => {
-    console.log("Rendering...");
-    document.title = "React Tutorial";
-  }, [sync]);
-
-  //   useEffect(() => {
-  //     fetch("https://jsonplaceholder.typicode.com/users", {
-  //       method: "GET",
-  //     })
-  //       .then((response) => {
-  //         return response.json();
-  //       })
-  //       .then((data) => {
-  //         console.log(data);
-  //       })
-  //       .catch((err) => {
-  //         console.log("Invalid Endpoint :",err);
-  //       });
-  //   });
-
-  useEffect(() => {
-    // Abort Class instance
-    const controller = new AbortController();
-    async function fetchUsers() {
-      try {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/users",
-          {
-            signal: controller.signal,
-          }
-        );
-        const json = await response.json();
-        console.log(json);
-      } catch (error) {
-        console.log("Some Error in Fetching :", error);
-      }
-    }
-    fetchUsers();
-    // Abort CleanUp function
-    return ()=> {
-        controller.abort();
-        console.log(controller.signal);
-    }
+  const [blogPostData, setBlogPostData] = useState({
+    title: "",
+    content: "",
   });
 
-  function Incrementer() {
-    setCounter((prevCount) => prevCount + 1);
+  function titleChange(e) {
+    setBlogPostData((currentBlogPostData) => ({
+      ...currentBlogPostData,
+      title: e.target.value,
+    }));
   }
 
-  function SyncCounter() {
-    setSync((current) => !current);
+  function contentChange(e) {
+    setBlogPostData((currentBlogPostData) => ({
+      ...currentBlogPostData,
+      content: e.target.value,
+    }));
   }
+
+  function formSubmit(e) {
+    e.preventDefault();
+    if (blogPostData.title && blogPostData.content)
+      fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        body: {
+          userId: 1,
+          title: blogPostData.title,
+          content: blogPostData.content,
+        },
+        headers: {
+          "Content-type": "application/josn; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success!");
+          console.log(data);
+        })
+        .catch((err) => console.log("Error while Fetching :", err));
+  }
+
+  console.log(blogPostData);
+
   return (
     <>
       <h2>
@@ -65,11 +53,27 @@ export default function App() {
         Anson The Developer.
       </h2>
       <hr />
-      <div>
-        <div>You have Clicked the button {counter} times.</div>
-        <button onClick={Incrementer}>Click ME {counter}</button> &emsp;
-        <button onClick={SyncCounter}>Sync</button>
-      </div>
+      <form onSubmit={formSubmit}>
+        <div>
+          <label htmlFor="title">Title : </label>
+          <input
+            type="text"
+            id="title"
+            value={blogPostData.title}
+            onChange={titleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="content">Content : </label>
+          <input
+            type="text"
+            id="content"
+            value={blogPostData.content}
+            onChange={contentChange}
+          />
+        </div>
+        <button>Create Post</button>
+      </form>
     </>
   );
 }
