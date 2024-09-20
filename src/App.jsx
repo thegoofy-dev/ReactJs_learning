@@ -25,10 +25,15 @@ export default function App() {
   //   });
 
   useEffect(() => {
+    // Abort Class instance
+    const controller = new AbortController();
     async function fetchUsers() {
       try {
         const response = await fetch(
-          "https://jsonplaceholder.typicode.com/users"
+          "https://jsonplaceholder.typicode.com/users",
+          {
+            signal: controller.signal,
+          }
         );
         const json = await response.json();
         console.log(json);
@@ -37,6 +42,11 @@ export default function App() {
       }
     }
     fetchUsers();
+    // Abort CleanUp function
+    return ()=> {
+        controller.abort();
+        console.log(controller.signal);
+    }
   });
 
   function Incrementer() {
