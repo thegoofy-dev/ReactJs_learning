@@ -1,13 +1,7 @@
-import { useState } from "react";
-import { LoginForm } from "./Components/LoginForms";
+import { PostContainer } from "./Components/POST/PostContainer";
+import { UserContext } from "./utils/contexts/UserContext"
 
 export default function App() {
-  const [toggle, setToggle] = useState(false);
-
-  function Toggler() {
-    setToggle((currentState) => !currentState);
-  }
-
   return (
     <>
       <h2>
@@ -18,8 +12,7 @@ export default function App() {
       </h2>
       <hr />
       <div>
-        <button onClick={Toggler}>Toggle</button> <hr />
-        {toggle && <LoginForm />}
+        <PostContainer />
       </div>
     </>
   );
