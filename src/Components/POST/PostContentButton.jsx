@@ -15,7 +15,7 @@ export function PostContentButton() {
         onClick={() => {
           setData((currentState) => ({
             ...currentState,
-            displayName: "Updated Display Name",
+            name: "Updated Display Name",
           }));
         }}
       >
