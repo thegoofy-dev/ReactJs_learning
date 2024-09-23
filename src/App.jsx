@@ -1,19 +1,23 @@
 import { PostContainer } from "./Components/POST/PostContainer";
-import { UserContext } from "./utils/contexts/UserContext"
+import { PostContentButton } from "./Components/POST/PostContentButton";
+import { UserContext } from "./utils/contexts/UserContext";
 
 export default function App() {
   return (
     <>
-      <h2>
-        Hola! This is our React Tutorial by
-        <br />
-        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#8212;
-        Anson The Developer.
-      </h2>
-      <hr />
-      <div>
-        <PostContainer />
-      </div>
+      <UserContext.Provider
+        value={{
+          id: 1,
+          username: "Qayzer Gaming",
+          email: "tillu@gmail.com",
+          displayName: "Tillu Galoch",
+        }}
+      >
+        <div>
+          <PostContainer />
+        </div>
+      </UserContext.Provider>
+      <PostContentButton />
     </>
   );
 }
