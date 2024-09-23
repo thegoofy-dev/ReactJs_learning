@@ -5,11 +5,14 @@ import { useContext } from "react";
 export function PostContainer() {
   const userContextData = useContext(UserContext);
 
-  console.log(userContextData)
+  console.log(userContextData.setData);
+
   return (
     <div>
       <hr />
-      <h4>PostConatiner</h4>
+      <div>
+        <span>Post Container</span>
+      </div>
       <PostContent />
       <div>Display Name: {userContextData.displayName}</div>
     </div>

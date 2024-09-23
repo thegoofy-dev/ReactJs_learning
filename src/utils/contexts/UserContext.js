@@ -5,4 +5,5 @@ export const UserContext = createContext({
     username: "Guest",
     email: "default@gmail.com",
     displayName: "Welcome Guest",
+    setData : () => {}
 });
