@@ -36,11 +36,25 @@ export default function App() {
 
       <div>
         <label htmlFor="data">Enter Data:</label>
-        <input type="text" id="data" onChange={(e) => {
-          console.log(e.target.value);
-          if(e.target.value.length > 10)
-            navigate("/blog-post");
-        }} /> 
+        <input
+          type="text"
+          id="data"
+          onChange={(e) => {
+            console.log(e.target.value);
+            if (e.target.value.length > 10)
+              navigate("/blog-post", {
+                state: {
+                  posts: [
+                    {
+                      id: 1,
+                      title: "hello world",
+                      content: "Welcome to my first post",
+                    },
+                  ],
+                },
+              });
+          }}
+        />
       </div>
 
       <UserContext.Provider value={{ ...userData, setData: setUserData }}>
