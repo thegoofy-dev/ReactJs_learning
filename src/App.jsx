@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { PostContainer } from "./Components/POST/PostContainer";
 import { UserContext } from "./utils/contexts/UserContext";
 import { useFetchUser } from "./utils/hooks/useFetchUser";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 export default function App() {
   const { user, error, loading } = useFetchUser(1);
@@ -18,10 +18,21 @@ export default function App() {
 
   return (
     <>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/users">Users</Link>
+          </li>
+          <li>
+            <Link to="/blog-post">Blogs</Link>
+          </li>
+        </ul>
+      </nav>
       <UserContext.Provider value={{ ...userData, setData: setUserData }}>
-        <div>
-          {loading ? 'Loading...' : <PostContainer />}
-        </div>
+        <div>{loading ? "Loading..." : <PostContainer />}</div>
       </UserContext.Provider>
       <Outlet />
     </>
