@@ -1,7 +1,7 @@
 export function UsernameDisplay({username}) {
     return (
         <div>
-            <span>{username}</span>
+            <h2>{username}</h2>
         </div>
     )
 }
