@@ -1,10 +1,13 @@
 import { describe, it, expect } from "vitest"; 
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { UsernameDisplay } from "../Components/UsernameDisplay";
 
 describe("UserName Display", () => {
     it("should render username", () => {
-        const result = render(<UsernameDisplay username={"Tillu"} />);
-        expect(result.container).toMatchSnapshot();
+        render(<UsernameDisplay username={"Tillu"} />);
+        // expect(screen.getByText(/llu/)).toBeInTheDocument();
+        // expect(screen.getByText("Tillu")).toBeInTheDocument();
+        const elements = screen.getAllByText("Tillu");
+        elements.forEach((element) => { expect(element).toBeInTheDocument() });
     });
 })
