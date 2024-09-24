@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { PostContainer } from "./Components/POST/PostContainer";
 import { UserContext } from "./utils/contexts/UserContext";
 import { useFetchUser } from "./utils/hooks/useFetchUser";
+import { Outlet } from "react-router-dom";
 
 export default function App() {
   const { user, error, loading } = useFetchUser(1);
@@ -22,6 +23,7 @@ export default function App() {
           {loading ? 'Loading...' : <PostContainer />}
         </div>
       </UserContext.Provider>
+      <Outlet />
     </>
   );
 }

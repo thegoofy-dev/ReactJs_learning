@@ -7,19 +7,21 @@ import { UsersPage } from "./pages/UsersPgae";
 import { BlogPostPages } from "./pages/BlogPostsPage";
 
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App />
-    },
-    {
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
         path: "/users",
-        element: <UsersPage />
-    },
-    {
+        element: <UsersPage />,
+      },
+      
+    ],
+  },{
         path: "/blog-post",
-        element: <BlogPostPages />
-    },
-])
+        element: <BlogPostPages />,
+      },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
