@@ -5,8 +5,10 @@ import { UsernameDisplay } from "../Components/UsernameDisplay";
 describe("UsernameDisplay", () => {
   it("should render username", async () => {
     render(<UsernameDisplay username={"Tillu"} />);
-    expect(await screen.findByText("Tillu", {}, { timeout: 8000})).toBeInTheDocument();
-  })
+    expect(
+      await screen.findByText("Tillu", {}, { timeout: 8000 })
+    ).toBeInTheDocument();
+  });
 });
 
 // Types of Queries

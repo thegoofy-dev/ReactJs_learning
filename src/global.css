@@ -1,16 +1,16 @@
-body{
-    background-color: #1e1e1e;
-    color: peru;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+body {
+  background-color: #1e1e1e;
+  color: peru;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .title {
-    border: 1.5px solid grey;
-    border-radius: 8px;
+  border: 1.5px solid grey;
+  border-radius: 8px;
 }
 
 .addUser {
-    text-align: center;
-    text-decoration: underline;
-    cursor: pointer;
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
 }

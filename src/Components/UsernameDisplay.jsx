@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react" 
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 export function UsernameDisplay({ username }) {
-    const [timerPassed, setTimerPassed] = useState(false);
+  const [timerPassed, setTimerPassed] = useState(false);
 
-    useEffect(() => {
-        setTimeout(() =>{
-            setTimerPassed(true);
-        }, 2000);
-    })
+  useEffect(() => {
+    setTimeout(() => {
+      setTimerPassed(true);
+    }, 2000);
+  });
 
   return (
     <div>
@@ -18,5 +18,5 @@ export function UsernameDisplay({ username }) {
 }
 
 UsernameDisplay.propTypes = {
-    username: PropTypes.string.isRequired
-}
+  username: PropTypes.string.isRequired,
+};

@@ -12,7 +12,8 @@ export function LoginForm() {
     return () => {
       console.log("Unmounting Login Form");
       console.log("Removing Resize Event Listener!");
-      window.removeEventListener("resize", resizeEventHandler);    };
+      window.removeEventListener("resize", resizeEventHandler);
+    };
   }, []);
 
   useDocumentClick();
