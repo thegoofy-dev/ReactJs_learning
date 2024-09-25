@@ -1,3 +1,70 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`App > should render users 1`] = `<div />`;
+exports[`App > should render users 1`] = `
+<div>
+  <div>
+    <hr />
+    <div>
+      <h3>
+        Post Container
+      </h3>
+    </div>
+    <div>
+      <hr />
+      <div>
+        <h3>
+          Post Content
+        </h3>
+      </div>
+      <div>
+        <hr />
+        <div>
+          <h3>
+            Post Content Button
+          </h3>
+        </div>
+        <span>
+          UserName: 
+          Javier
+        </span>
+         
+        <br />
+        <label
+          for="updateName"
+        >
+          UpdateName:
+        </label>
+        <input
+          id="updateName"
+          name="updateName"
+          type="text"
+          value=""
+        />
+        <button>
+          Save Display Name
+        </button>
+      </div>
+      <span>
+        Email: 
+        javier@gmail.com
+      </span>
+    </div>
+    <div>
+      DisplayName: 
+      RakaZone
+    </div>
+    <div>
+      ID: 
+      7001
+    </div>
+    <div>
+      Email: 
+      javier@gmail.com
+    </div>
+    <div>
+      UserName: 
+      Javier
+    </div>
+  </div>
+</div>
+`;

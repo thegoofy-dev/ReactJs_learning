@@ -9,7 +9,7 @@ export function PostContent() {
     <div>
       <hr />
       <div>
-        <span>Post Content</span>
+        <h3>Post Content</h3>
       </div>
       <PostContentButton />
       <span>Email: {userContextData.email}</span>

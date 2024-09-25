@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import { useEffect } from "react";
-// import { PostContainer } from "./Components/POST/PostContainer";
-// import { UserContext } from "./utils/contexts/UserContext";
+import { PostContainer } from "./Components/POST/PostContainer";
+import { UserContext } from "./utils/contexts/UserContext";
 // import { useFetchUser } from "./utils/hooks/useFetchUser";
 // import { Link, useNavigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
@@ -9,7 +9,12 @@ import { UserDetails } from "./Components/UserDeatils";
 
 export default function App({ usersData }) {
   // const { user, error, loading } = useFetchUser(1);
-  // const [userData, setUserData] = useState();
+  const [userData, setUserData] = useState({
+    id: 7001,
+    username: "Javier",
+    email: "javier@gmail.com",
+    name: "RakaZone",
+  });
   // const navigate = useNavigate();
 
   // useEffect(() => {
@@ -58,11 +63,11 @@ export default function App({ usersData }) {
               });
           }}
         />
-      </div>
+      </div> */}
 
       <UserContext.Provider value={{ ...userData, setData: setUserData }}>
-        <div>{loading ? "Loading..." : <PostContainer />}</div>
-      </UserContext.Provider> */}
+        <PostContainer />
+      </UserContext.Provider>
       <Outlet />
     </>
   );

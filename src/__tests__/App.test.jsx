@@ -128,7 +128,30 @@ describe("When there are 2 users", () => {
     await userEvent.click(
       within(userDetails).getByRole("button", { name: "Save" })
     );
-    expect(within(userDetails).queryByLabelText('Username:')).toBeNull();
-    expect(within(userDetails).getByText('Michael123')).toBeInTheDocument();
+    expect(within(userDetails).queryByLabelText("Username:")).toBeNull();
+    expect(within(userDetails).getByText("Michael123")).toBeInTheDocument();
+  });
+});
+
+describe("updating UserContext", () => {
+  it("should update displayName", async () => {
+    render(<App usersData={[]} />);
+
+    // Debug the DOM to check if the component is rendered correctly
+    screen.debug();
+
+    // Wait for the input to be rendered
+    const input = await screen.findByLabelText("UpdateName:");
+    await userEvent.type(input, "RakaZone Gaming");
+
+    const button = screen.getByRole("button", { name: "Save Display Name" });
+    await userEvent.click(button);
+
+    // Use a regular expression to match the text
+    const displayNameElement = screen.getByText(
+      /DisplayName:\s*RakaZone Gaming/i
+    );
+
+    expect(displayNameElement).toBeInTheDocument();
   });
 });
