@@ -22,6 +22,12 @@ describe("App", () => {
       render(<App />);
       const editButton = screen.getByRole("button", { name: "Edit" });
       await userEvent.click(editButton);
+      expect(
+        screen.getByRole("textbox", { name: "username" })
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("textbox", { name: "email" })
+      ).toBeInTheDocument();
     });
   });
 });

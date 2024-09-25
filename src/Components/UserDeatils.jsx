@@ -26,9 +26,10 @@ export function UserDetails({ user, setUsers }) {
   return (
     <div>
       <b>ID:</b> <span>{user.id}</span> <br />
-      <span>Username: </span>
+      <b>Username: </b>
       {isEditing ? (
         <input
+          aria-label="username"
           name="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -37,9 +38,10 @@ export function UserDetails({ user, setUsers }) {
         <span>{user.username}</span>
       )}
       <br />
-      <span>Email: </span>
+      <b>Email: </b>
       {isEditing ? (
         <input
+          aria-label="email"
           type="email"
           name="email"
           value={email}
