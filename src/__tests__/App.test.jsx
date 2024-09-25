@@ -99,4 +99,36 @@ describe("When there are 2 users", () => {
       within(userDetails).getByRole("button", { name: "Save" })
     ).toBeInTheDocument();
   });
+
+  it("should edit 2nd username and save the updated one", async () => {
+    render(
+      <App
+        usersData={[
+          {
+            id: 1,
+            username: "John",
+            email: "john@gmail.com",
+          },
+          {
+            id: 2,
+            username: "Michael",
+            email: "michael@gmail.com",
+          },
+        ]}
+      />
+    );
+    const userDetails = screen.getByTestId("user-details-2");
+    await userEvent.click(
+      within(userDetails).getByRole("button", { name: "Edit" })
+    );
+    await userEvent.type(
+      within(userDetails).getByLabelText("Username:"),
+      "123"
+    );
+    await userEvent.click(
+      within(userDetails).getByRole("button", { name: "Save" })
+    );
+    expect(within(userDetails).queryByLabelText('Username:')).toBeNull();
+    expect(within(userDetails).getByText('Michael123')).toBeInTheDocument();
+  });
 });
