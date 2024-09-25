@@ -9,8 +9,19 @@ describe("App", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("should render save button when edit button is clicked", () => {
-    render(<App />);
-    console.log(screen.getByRole("button", { name: "Edit" }));
+  describe("Edit Button is Clicked", () => {
+    it("should render save button", async () => {
+      render(<App />);
+      const editButton = screen.getByRole("button", { name: "Edit" });
+      await userEvent.click(editButton);
+      const saveButton = screen.getByRole("button", { name: "Save" });
+      expect(saveButton).toBeInTheDocument();
+    });
+
+    it("should display username & email input fields", async () => {
+      render(<App />);
+      const editButton = screen.getByRole("button", { name: "Edit" });
+      await userEvent.click(editButton);
+    });
   });
 });
