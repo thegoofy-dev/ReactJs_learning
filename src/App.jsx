@@ -20,6 +20,11 @@ export default function App() {
       username: "John",
       email: "john@gmail.com",
     },
+    {
+      id: 2,
+      username: "Michael",
+      email: "michael@gmail.com",
+    },
   ]);
 
   return (

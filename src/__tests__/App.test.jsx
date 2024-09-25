@@ -24,6 +24,7 @@ describe("App", () => {
       await userEvent.click(editButton);
       expect(screen.getByLabelText("Username:")).toBeInTheDocument();
       expect(screen.getByLabelText("Email:")).toBeInTheDocument();
+      
     });
   });
 });

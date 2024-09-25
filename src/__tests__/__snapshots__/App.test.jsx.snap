@@ -36,5 +36,39 @@ exports[`App > should render users 1`] = `
     </div>
     <hr />
   </div>
+  <div>
+    <b>
+      ID:
+    </b>
+     
+    <span>
+      2
+    </span>
+     
+    <br />
+    <b>
+      Username: 
+    </b>
+    <span>
+      Michael
+    </span>
+    <br />
+    <b>
+      Email: 
+    </b>
+    <span>
+      michael@gmail.com
+    </span>
+    <br />
+    <div>
+      <button>
+        Edit
+      </button>
+      <button>
+        Delete
+      </button>
+    </div>
+    <hr />
+  </div>
 </div>
 `;
