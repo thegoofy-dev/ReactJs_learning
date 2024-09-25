@@ -26,7 +26,11 @@ export function UserDetails({ user, setUsers }) {
   return (
     <div>
       <b>ID:</b> <span>{user.id}</span> <br />
-      {isEditing ? (<label htmlFor="username">Username: </label>) : (<b>Username: </b>)}
+      {isEditing ? (
+        <label htmlFor="username">Username: </label>
+      ) : (
+        <b>Username: </b>
+      )}
       {isEditing ? (
         <input
           aria-label="username"
@@ -54,10 +58,10 @@ export function UserDetails({ user, setUsers }) {
       )}
       <br />
       <div>
-        <button onClick={() => setIsEditing((prev) => !prev)}>
+        <button data-testid={`edit-btn-${user.id}`} onClick={() => setIsEditing((prev) => !prev)}>
           {isEditing ? "Cancel" : "Edit"}
         </button>
-        <button onClick={handleDelete}>Delete</button>
+        <button data-testid={`delete-btn-${user.id}`} onClick={handleDelete}>Delete</button>
         {isEditing && <button onClick={handleSave}>Save</button>}
       </div>
       <hr />

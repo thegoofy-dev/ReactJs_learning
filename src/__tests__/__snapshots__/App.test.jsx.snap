@@ -27,10 +27,14 @@ exports[`App > should render users 1`] = `
     </span>
     <br />
     <div>
-      <button>
+      <button
+        data-testid="edit-btn-1"
+      >
         Edit
       </button>
-      <button>
+      <button
+        data-testid="delete-btn-1"
+      >
         Delete
       </button>
     </div>
@@ -61,10 +65,14 @@ exports[`App > should render users 1`] = `
     </span>
     <br />
     <div>
-      <button>
+      <button
+        data-testid="edit-btn-2"
+      >
         Edit
       </button>
-      <button>
+      <button
+        data-testid="delete-btn-2"
+      >
         Delete
       </button>
     </div>
