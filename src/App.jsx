@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
-import { PostContainer } from "./Components/POST/PostContainer";
-import { UserContext } from "./utils/contexts/UserContext";
-import { useFetchUser } from "./utils/hooks/useFetchUser";
-import { Outlet, Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+// import { useEffect } from "react";
+// import { PostContainer } from "./Components/POST/PostContainer";
+// import { UserContext } from "./utils/contexts/UserContext";
+// import { useFetchUser } from "./utils/hooks/useFetchUser";
+// import { Link, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { UserDetails } from "./Components/UserDeatils";
 
-export default function App() {
+export default function App({ usersData }) {
   // const { user, error, loading } = useFetchUser(1);
   // const [userData, setUserData] = useState();
   // const navigate = useNavigate();
@@ -14,18 +16,7 @@ export default function App() {
   //   if (!loading && !error && user) setUserData(user);
   // }, [loading, user, error]);
 
-  const [users, setUsers] = useState([
-    {
-      id: 1,
-      username: "John",
-      email: "john@gmail.com",
-    },
-    {
-      id: 2,
-      username: "Michael",
-      email: "michael@gmail.com",
-    },
-  ]);
+  const [users, setUsers] = useState(usersData);
 
   return (
     <>
